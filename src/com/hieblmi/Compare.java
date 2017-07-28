@@ -8,11 +8,11 @@ import static javafx.scene.input.KeyCode.T;
 
 public class Compare {
 
-    private static class Pair<T extends Comparable<T>> implements Comparable<Pair<T>> {
-        private T a;
-        private T b;
+    private static class Pair implements Comparable<Pair> {
+        private int a;
+        private int b;
 
-        Pair(T a, T b) {
+        Pair(int a, int b) {
             this.a = a;
             this.b = b;
         }
