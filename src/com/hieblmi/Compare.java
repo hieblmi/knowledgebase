@@ -5,8 +5,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import static javafx.scene.input.KeyCode.T;
-
 public class Compare {
 
     private static class Pair<T extends Comparable> implements Comparable<Pair<T>> {
