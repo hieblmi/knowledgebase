@@ -38,6 +38,30 @@ public class Compare {
         }
     }
 
+    private static class AscPairCmp<T extends Comparable> implements Comparator<Pair<T>> {
+        @Override
+        public int compare(Pair<T> p1, Pair<T> p2) {
+            if(p1.getA() == p2.getA()) {
+                return p1.getB().compareTo(p2.getB());
+            } else {
+                return p1.getA().compareTo(p2.getA());
+            }
+        }
+    };
+    public static AscPairCmp PAIR_COMPARATOR_ASCENDING = new AscPairCmp();
+
+    private static class DescPairCmp<T extends Comparable> implements Comparator<Pair<T>> {
+        @Override
+        public int compare(Pair<T> p1, Pair<T> p2) {
+            if(p1.getA() == p2.getA()) {
+                return -p1.getB().compareTo(p2.getB());
+            } else {
+                return -p1.getA().compareTo(p2.getA());
+            }
+        }
+    };
+    public static DescPairCmp PAIR_COMPARATOR_DESCENDING = new DescPairCmp();
+
     public static void main(String[] args) {
         List<Pair<Integer>> list = new ArrayList<>();
         list.add(new Pair<Integer>(1,3));
@@ -49,17 +73,18 @@ public class Compare {
         list.add(new Pair<Integer>(3,1));
 
         Collections.sort(list);
+
         System.out.println(list.toString());
-        Collections.sort(list, new Comparator<Pair<Integer>>() {
-            @Override
-            public int compare(Pair<Integer> o1, Pair<Integer> o2) {
-                if(o1.getA() == o2.getA()) {
-                    return o1.getB().compareTo(o2.getB());
-                } else {
-                    return o1.getA().compareTo(o2.getA());
-                }
-            }
-        });
+
+        Collections.shuffle(list);
+
+        Collections.sort(list, PAIR_COMPARATOR_ASCENDING);
+
+        System.out.println(list.toString());
+
+        Collections.shuffle(list);
+
+        Collections.sort(list, PAIR_COMPARATOR_DESCENDING);
 
         System.out.println(list.toString());
     }
