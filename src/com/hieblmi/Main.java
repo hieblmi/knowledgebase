@@ -37,10 +37,7 @@ public class Main {
             if(currentData == data) {
                 it.remove();
                 break;
-            } else {
-                it.next();
             }
-
         }
     }
 }

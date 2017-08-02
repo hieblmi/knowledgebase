@@ -34,42 +34,39 @@ public class IterableLinkedList<T> implements Iterable<Node<T>> {
         private Node<T> prev;
 
 
-        MyLinkedListIterator() {
-            current = head;
-            prev = head;
-        }
+        MyLinkedListIterator() {}
 
         @Override
         public boolean hasNext() {
-            return current != null;
+            if(current == null) {
+                return head != null;
+            } else {
+                return current.getNext() != null;
+            }
         }
 
         @Override
         public Node<T> next() {
             if(hasNext()) {
-                if(current == head) {
-                    current = head.getNext();
-                    return head;
-                } else {
-
-                }
+               if(current == null) {
+                   current = head;
+                   return current;
+               } else {
+                    prev = current;
+                    current = current.getNext();
+               }
             }
             throw new NoSuchElementException();
         }
 
         @Override
         public void remove() {
-            if(head == null) {
-                return;
-            }
-
-            if(current == head) {
-                current = current.getNext();
-                head = current;
-                prev = current;
+            if(prev == null) {
+                current = null;
+                head = head.getNext();
             } else {
                 prev.setNext(current.getNext());
-                current = prev.getNext();
+                current = prev;
             }
         }
     }
