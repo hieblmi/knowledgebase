@@ -31,9 +31,12 @@ public class IterableLinkedList<T> implements Iterable<Node<T>> {
     private class MyLinkedListIterator implements Iterator<Node<T>> {
 
         private Node<T> current;
+        private Node<T> prev;
+
 
         MyLinkedListIterator() {
             current = head;
+            prev = head;
         }
 
         @Override
@@ -44,16 +47,30 @@ public class IterableLinkedList<T> implements Iterable<Node<T>> {
         @Override
         public Node<T> next() {
             if(hasNext()) {
-                Node<T> next = current;
-                current = current.getNext();
-                return next;
+                if(current == head) {
+                    current = head.getNext();
+                    return head;
+                } else {
+
+                }
             }
             throw new NoSuchElementException();
         }
 
         @Override
         public void remove() {
+            if(head == null) {
+                return;
+            }
 
+            if(current == head) {
+                current = current.getNext();
+                head = current;
+                prev = current;
+            } else {
+                prev.setNext(current.getNext());
+                current = prev.getNext();
+            }
         }
     }
 

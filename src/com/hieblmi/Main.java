@@ -10,10 +10,37 @@ public class Main {
         list.add(new Node(2));
         list.add(new Node(3));
         list.add(new Node(4));
+        list.add(new Node(5));
 
-        Iterator<Node<Integer>> it = (Iterator<Node<Integer>>)list.iterator();
+        printList(list);
+        removeFromList(list, 1);
+        printList(list);
+        removeFromList(list, 5);
+        printList(list);
+        removeFromList(list, 3);
+        printList(list);
+    }
+
+    private static void printList(IterableLinkedList<Node<Integer>> list) {
+        Iterator it = list.iterator();
+        System.out.println("--------");
         while(it.hasNext()) {
-            System.out.println(it.next().getData());
+            int data = ((Node<Integer>)it.next()).getData();
+            System.out.println(data);
+        }
+    }
+
+    private static void removeFromList(IterableLinkedList<Node<Integer>> list, int data) {
+        Iterator it = list.iterator();
+        while(it.hasNext()) {
+            int currentData = ((Node<Integer>)it.next()).getData();
+            if(currentData == data) {
+                it.remove();
+                break;
+            } else {
+                it.next();
+            }
+
         }
     }
 }
