@@ -24,5 +24,8 @@ public class BFSMain {
         map.put(new Node(1), 3);
 
         System.out.println(map.get(new Node(1)));
+
+        DFS<Integer> dfsGraph = new DFS<>(start);
+        System.out.println(graph.find(new Node<Integer>((9))));
     }
 }
