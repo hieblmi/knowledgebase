@@ -19,6 +19,14 @@ public class Main {
         printList(list);
         removeFromList(list, 3);
         printList(list);
+        list.add(new Node(2));
+        printList(list);
+        removeFromList(list, 2);
+        printList(list);
+        removeFromList(list, 2);
+        printList(list);
+        removeFromList(list, 4);
+        printList(list);
     }
 
     private static void printList(IterableLinkedList<Node<Integer>> list) {

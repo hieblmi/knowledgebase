@@ -50,11 +50,11 @@ public class IterableLinkedList<T> implements Iterable<Node<T>> {
             if(hasNext()) {
                if(current == null) {
                    current = head;
-                   return current;
                } else {
                     prev = current;
                     current = current.getNext();
                }
+               return current;
             }
             throw new NoSuchElementException();
         }
@@ -67,6 +67,9 @@ public class IterableLinkedList<T> implements Iterable<Node<T>> {
             } else {
                 prev.setNext(current.getNext());
                 current = prev;
+                if(current.getNext() == null) {
+                    end = current;
+                }
             }
         }
     }
