@@ -1,4 +1,4 @@
-package com.hieblmi;
+package com.hieblmi.basics;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package com.hieblmi;
+package com.hieblmi.basics;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
