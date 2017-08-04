@@ -1,11 +1,9 @@
 package com.hieblmi.graphs;
 
-import com.hieblmi.graphs.Node;
-
 import java.util.HashMap;
 import java.util.Map;
 
-public class BFSMain {
+public class Main {
 
     public static void main(String[] args) {
         Node<Integer> start = new Node<>(1);

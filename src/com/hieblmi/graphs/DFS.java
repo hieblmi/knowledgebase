@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-class BFS<T> {
+class DFS<T> {
 
     private Node<T> start;
 
-    BFS(Node<T> start) {
+    DFS(Node<T> start) {
         this.start = start;
     }
 
