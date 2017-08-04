@@ -16,6 +16,6 @@ public class PasswordPermutation {
 
     private static List<String> passwordPermutations(String p) {
 
-        
+        return null;
     }
 }
