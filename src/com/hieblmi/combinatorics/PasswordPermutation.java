@@ -1,4 +1,4 @@
-package com.hieblmi.basics;
+package com.hieblmi.combinatorics;
 
 import java.util.HashMap;
 import java.util.Map;

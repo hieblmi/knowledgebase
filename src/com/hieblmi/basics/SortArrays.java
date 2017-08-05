@@ -15,6 +15,9 @@ public class SortArrays {
         i=j=k=l=0;
 
         for(;l<d.length; l++) {
+
+            // check for end. if not use...
+
             int min = Math.min(Math.min(a[i], b[j]), c[k]);
             if(a[i] == min) i++;
             if(b[j] == min) j++;

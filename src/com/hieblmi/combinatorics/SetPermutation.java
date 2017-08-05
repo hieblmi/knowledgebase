@@ -1,4 +1,4 @@
-package com.hieblmi.basics;
+package com.hieblmi.combinatorics;
 
 public class SetPermutation {
 
