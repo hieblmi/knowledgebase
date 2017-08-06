@@ -1,7 +1,7 @@
 package com.hieblmi.graphs.binaryTree;
 
 
-class Node<T extends Comparable> {
+class Node<T extends Integer> {
     private Node<T> left;
     private Node<T> right;
     private T data;

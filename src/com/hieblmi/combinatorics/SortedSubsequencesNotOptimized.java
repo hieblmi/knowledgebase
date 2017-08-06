@@ -35,7 +35,6 @@ public class SortedSubsequencesNotOptimized {
 
                 t = ss;
             }
-
         }
 
         return t;
