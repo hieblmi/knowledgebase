@@ -49,6 +49,7 @@ class BinaryTree<T extends Integer> {
     }
 
     public void print() {
+        System.out.println("Number of nodes: " + numberOfNodes);
         System.out.println("Maximum height: " + getMaximumHeight());
         List<Integer> list = new LinkedList<>();
         printRec(root, list);
@@ -67,7 +68,7 @@ class BinaryTree<T extends Integer> {
 
     private void printRec(Node<T> n, List<Integer> list) {
         if (n.getLeft() != null) printRec(n.getLeft(), list);
-        list.add(n.getData());
+        System.out.print(n.getData() + " ");
         if (n.getRight() != null) printRec(n.getRight(), list);
     }
 
@@ -85,9 +86,19 @@ class BinaryTree<T extends Integer> {
         }
     }
 
-    private Node<T> lowestCommonAncestor(Node<T> n1, Node<T> n2) {
-        
-        return null;
+    // see http://www.geeksforgeeks.org/lowest-common-ancestor-in-a-binary-search-tree/
+    public Node<T> lowestCommonAncestor(Node<T> n1, Node<T> n2, Node<T> current) {
+
+        if(current == null) return root;
+
+        int d1 = n1.getData();
+        int d2 = n2.getData();
+        int c = current.getData();
+
+        if(d1 == c || d2 == c) return current;
+        if(d1 < c && c < d2) return current;
+        if(c < d1) return lowestCommonAncestor(n1, n2, current.getRight());
+        return lowestCommonAncestor(n1, n2, current.getLeft());
     }
 
     private void rotateLeft() {
