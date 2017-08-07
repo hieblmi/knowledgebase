@@ -1,31 +1,33 @@
 package com.hieblmi.basics;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 public class SortArrays {
     public static void main(String[] args) {
 
-        int[] a = {1, 2};
-        int[] b = {2, 3};
-        int[] c = {3, 5};
-        int[] d = new int[a.length + b.length + c.length];
+        List<Integer> a = new LinkedList<>(Arrays.asList(1, 2));
+        List<Integer> b =  new LinkedList<>(Arrays.asList(2, 3));
+        List<Integer> c =  new LinkedList<Integer>(Arrays.asList(3, 4));
+        List<Integer> d =  new ArrayList<Integer>();
 
-        int i,j,k,l;
-
-        i=j=k=l=0;
-
-        for(;l<d.length; l++) {
-
-            // check for end. if not use...
-
-            int min = Math.min(Math.min(a[i], b[j]), c[k]);
-            if(a[i] == min) i++;
-            if(b[j] == min) j++;
-            if(c[k] == min) k++;
-            d[l] = min;
+        for(int i=0;i<a.size()+b.size(); i++) {
+            int min = a.get(0) < b.get(0) ? a.remove(0) : b.remove(0);
+            d.add(min);
         }
 
-        System.out.printf(Arrays.toString(d));
+        for(int i=0, c_i=0; i<d.size(); i++) {
+            if(d.get(i) > c.get(c_i)) {
+                d.add(i, c.remove(c_i));
+            }
+        }
 
+        if(c.size() > 0) {
+            d.addAll(c);
+        }
+
+        System.out.printf(d.toString());
     }
 }
