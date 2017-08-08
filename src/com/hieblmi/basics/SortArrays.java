@@ -13,7 +13,15 @@ public class SortArrays {
         List<Integer> c =  new LinkedList<Integer>(Arrays.asList(3, 4));
         List<Integer> d =  new ArrayList<Integer>();
 
-        for(int i=0;i<a.size()+b.size(); i++) {
+        int abSize = a.size() + b.size();
+        for(int i=0;i<abSize; i++) {
+            if(a.size() == 0) {
+                d.addAll(b);
+                break;
+            } else if(b.size() == 0) {
+                d.addAll(a);
+                break;
+            }
             int min = a.get(0) < b.get(0) ? a.remove(0) : b.remove(0);
             d.add(min);
         }
