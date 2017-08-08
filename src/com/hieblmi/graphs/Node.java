@@ -6,6 +6,7 @@ import java.util.ArrayList;
 class Node<T> {
     private List<Node<T>> neighbors;
     private T data;
+    private Node<T> prev;
 
     Node(T data) {
         this.data = data;
