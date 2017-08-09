@@ -24,5 +24,10 @@ public class Main {
     public static void main(String[] args) {
         Djikstra djikstra = new Djikstra(graph1);
         djikstra.findShortestPathFromSource(0);
+
+        DjikstraWithPriorityQueue djikstraPrio = new DjikstraWithPriorityQueue();
+        djikstraPrio.readGraphFromArray(graph1);
+
+        djikstraPrio.findShortesPath(0);
     }
 }
