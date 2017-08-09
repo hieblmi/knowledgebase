@@ -29,7 +29,7 @@ public class Node implements Comparable<Node> {
 
     @Override
     public int compareTo(Node n) {
-        return this.dist < n.getDist() ? 1 : this.dist == n.getDist() ? 0 : -1;
+        return this.dist < n.getDist() ? -1 : this.dist == n.getDist() ? 0 : 1;
     }
 
     @Override

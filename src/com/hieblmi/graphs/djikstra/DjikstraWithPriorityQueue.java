@@ -33,12 +33,12 @@ public class DjikstraWithPriorityQueue {
         }
     }
 
-    public void findShortesPath(int from) throws IndexOutOfBoundsException {
-        if (from < 0 || from >= nodes.size()) {
+    public void findShortesPath(int source) throws IndexOutOfBoundsException {
+        if (source < 0 || source >= nodes.size()) {
             throw new IndexOutOfBoundsException("Invalid Source");
         }
 
-        nodes.get(from).setDist(0);
+        nodes.get(source).setDist(0);
 
         Node current;
         while (!minQueue.isEmpty()) {
@@ -50,11 +50,9 @@ public class DjikstraWithPriorityQueue {
                     n.setDist(current.getDist() + graph[current.getId()][n.getId()]);
                     n.setPrev(current);
                 }
-
             }
-
-            print();
         }
+        print();
     }
 
     private void print() {
