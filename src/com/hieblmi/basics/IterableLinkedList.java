@@ -26,9 +26,9 @@ public class IterableLinkedList<T> implements Iterable<Node<T>> {
     @Override
     public String toString() {
         String content = "";
-        Iterator it = iterator();
+        Iterator<Node<T>> it = iterator();
         while(it.hasNext()) {
-            content += ((Node<Integer>)it.next()).getData();
+            content += it.next().getData();
         }
         return content;
     }

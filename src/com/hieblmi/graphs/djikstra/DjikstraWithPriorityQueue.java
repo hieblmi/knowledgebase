@@ -40,10 +40,9 @@ public class DjikstraWithPriorityQueue {
 
         nodes.get(source).setDist(0);
 
-        Node current;
         while (!minQueue.isEmpty()) {
-            current = minQueue.poll();
-
+            Node current = minQueue.poll();
+            current.setVisited(true);
             for (Node n :
                     current.getNeighbors()) {
                 if (!n.isVisited() && current.getDist() + graph[current.getId()][n.getId()] < n.getDist()) {

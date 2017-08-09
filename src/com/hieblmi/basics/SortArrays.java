@@ -10,8 +10,8 @@ public class SortArrays {
 
         List<Integer> a = new LinkedList<>(Arrays.asList(1, 2));
         List<Integer> b =  new LinkedList<>(Arrays.asList(2, 3));
-        List<Integer> c =  new LinkedList<Integer>(Arrays.asList(3, 4));
-        List<Integer> d =  new ArrayList<Integer>();
+        List<Integer> c =  new LinkedList<>(Arrays.asList(3, 4));
+        List<Integer> d =  new ArrayList<>();
 
         int abSize = a.size() + b.size();
         for(int i=0;i<abSize; i++) {
