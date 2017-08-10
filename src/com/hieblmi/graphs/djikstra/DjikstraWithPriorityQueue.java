@@ -41,13 +41,18 @@ public class DjikstraWithPriorityQueue {
         nodes.get(source).setDist(0);
 
         while (!minQueue.isEmpty()) {
+
             Node current = minQueue.poll();
             current.setVisited(true);
+
             for (Node n :
                     current.getNeighbors()) {
-                if (!n.isVisited() && current.getDist() + graph[current.getId()][n.getId()] < n.getDist()) {
-                    n.setDist(current.getDist() + graph[current.getId()][n.getId()]);
+                int additionalDistance = graph[current.getId()][n.getId()];
+                if (!n.isVisited() && current.getDist() + additionalDistance < n.getDist()) {
+                    n.setDist(current.getDist() + additionalDistance);
                     n.setPrev(current);
+                    minQueue.remove(n);
+                    minQueue.add(n);
                 }
             }
         }

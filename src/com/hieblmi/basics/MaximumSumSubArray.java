@@ -12,6 +12,7 @@ public class MaximumSumSubArray {
 
         int currentMax = Integer.MIN_VALUE;
         int valueTillHere = 0;
+        int k = 2;
 
         for(int i=0; i<a.length; i++) {
             valueTillHere = valueTillHere + a[i];
