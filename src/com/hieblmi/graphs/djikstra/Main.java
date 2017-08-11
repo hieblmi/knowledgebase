@@ -1,5 +1,9 @@
 package com.hieblmi.graphs.djikstra;
 
+import java.io.IOException;
+import java.nio.file.Paths;
+import java.util.Scanner;
+
 public class Main {
     public static int graph1[][] = new int[][]{
             {0, 7, 9, 0, 0, 14},
@@ -28,7 +32,14 @@ public class Main {
 
         DjikstraWithPriorityQueue djikstraPrio = new DjikstraWithPriorityQueue();
         djikstraPrio.readGraphFromArray(graph1);
-
         djikstraPrio.findShortesPath(0);
+
+
+        try {
+            final Scanner in = new Scanner(Paths.get("src/hackerrankDjikstra"));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

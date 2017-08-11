@@ -1,8 +1,12 @@
 package com.hieblmi.graphs.djikstra;
 
+import com.hieblmi.graphs.GraphReader2DArray;
+
+import java.util.Scanner;
+
 public class Djikstra {
 
-    private final int[][] graph;
+    private int[][] graph;
     int dist[];
     boolean visited[];
 
@@ -53,4 +57,9 @@ public class Djikstra {
             System.out.println("Node " + (int)(i+1) + " dist: " + dist[i]);
         }
     }
+
+    public void readGraph(GraphReader2DArray reader) {
+
+    }
+
 }
