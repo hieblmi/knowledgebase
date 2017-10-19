@@ -101,6 +101,12 @@ class BinaryTree<T extends Integer> {
         return lowestCommonAncestor(n1, n2, current.getLeft());
     }
 
+    public boolean isBalanced() {
+        return true; //return isBalancedRec(root, 0);
+    }
+
+
+
     private void rotateLeft() {
 
     }
